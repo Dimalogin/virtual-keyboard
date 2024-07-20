@@ -1,3 +1,4 @@
+const path = require("path");
 const { resolve } = require("node:path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -9,16 +10,18 @@ module.exports = (argv, env) => {
     mode: "development",
     devtool: "source-map",
     entry: {
-      main: "./index",
+      main: "./src/index",
     },
     output: {
       path: resolve(__dirname, "./dist"),
       filename: "[name].[contenthash].js",
       clean: true,
     },
+
     resolve: {
       extensions: [".ts", ".js"],
     },
+
     module: {
       rules: [
         {
@@ -36,13 +39,35 @@ module.exports = (argv, env) => {
           test: /\.s?css$/,
           use: ["style-loader", "css-loader", "sass-loader"],
         },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: "asset/resource",
+          dependency: { not: ["url"] },
+        },
       ],
     },
     plugins: [
-      new HtmlWebpackPlugin({ template: "./index.html" }),
+      new HtmlWebpackPlugin({ template: "./src/index.html" }),
       new MiniCssExtractPlugin({
         filename: "[name].[contenthash].css",
       }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: resolve(__dirname, "./src/images"),
+            to: resolve(__dirname, "./dist/images"),
+          },
+          {
+            from: resolve(__dirname, "./src/fonts"),
+            to: resolve(__dirname, "./dist/fonts"),
+          },
+        ],
+      }),
     ],
+
+    devServer: {
+      port: 8080,
+      open: true,
+    },
   };
 };
