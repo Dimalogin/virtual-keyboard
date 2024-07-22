@@ -1,4 +1,10 @@
-# virtual-keyboard - practical task from Rolling Scopes School
+## Virtual-keyboard - practical task from Rolling Scopes School
 
-- Technologies used: 
+Technologies used: 
+ 
+ - TypeScript
+ - Scss
+ - OOP
+
+ 
 

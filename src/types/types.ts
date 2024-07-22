@@ -1,4 +1,4 @@
-//type AttributesParams = {};
+export type AttributesParams = Array<Array<string>>;
 
 export type ElementParams = {
   tag: string;

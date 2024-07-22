@@ -1,29 +1,27 @@
 // Styles
 
-import "./headerView.scss";
+import "./mainView.scss";
 
 // Scripts
 
 import View from "../../view";
 import ContainerView from "../container/contanerView";
-import HeaderBodyView from "./headerBody/headerBodyView";
 
 // Types
 
 import { ElementParams } from "../../../../types/types";
-import { ViewParams } from "../../../../types/types";
 
 // Parameters
 
 const tag = {
-  TAG: "header",
+  TAG: "main",
 };
 
 const cssClasses = {
-  HEADER: "header",
+  HEADER: "main",
 };
 
-export default class HeaderView extends View {
+export default class MainView extends View {
   #containerView: HTMLElement | null = null;
 
   constructor() {
@@ -38,23 +36,17 @@ export default class HeaderView extends View {
 
     super(params);
     this.#createContainerView();
-    this.#createHeaderBodyView();
+
     this.#configureView();
   }
 
   #createContainerView(): void {
-    const headerContainerParams = {
-      CONTAINER: "header",
+    const mainContainerParams = {
+      CONTAINER: "main",
     };
 
-    const containerView = new ContainerView(headerContainerParams);
+    const containerView = new ContainerView(mainContainerParams);
     this.#containerView = containerView.getHtmlElement();
-  }
-
-  #createHeaderBodyView(): void {
-    const headerBodyView = new HeaderBodyView();
-
-    this.#containerView?.appendChild(headerBodyView.getHtmlElement());
   }
 
   #configureView() {

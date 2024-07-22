@@ -1,30 +1,27 @@
 // Styles
 
-import "./headerLogoImageView.scss";
+import View from "../../../../../view";
 
 // Scripts
 
-import View from "../../../../../../view";
-
 // Types
 
-import { ElementParams } from "../../../../../../../../types/types";
+import { ElementParams } from "../../../../../../../types/types";
+import { AttributesParams } from "../../../../../../../types/types";
 
-// Paramters
+// Parameters
 
 const tag = {
   TAG: "img",
 };
 
 const cssAttributes = {
-  SRC: ["src", "./images/keyboard.png"],
-  ALT: ["alt", "keyboard"],
-  TITLE: ["title", "logo"],
+  SRC: ["src", "./images/logoRss.svg"],
+  TITLE: ["title", "rsSchool"],
+  ALT: ["alt", "logoRsSchool"],
 };
 
-export default class HeaderLogoImageView extends View {
-  // #headerLogoImageView: HTMLElement | null = null;
-
+export default class FooterImageView extends View {
   constructor() {
     const params: ElementParams = {
       tag: tag.TAG,
