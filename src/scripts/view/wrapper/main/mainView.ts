@@ -36,7 +36,6 @@ export default class MainView extends View {
 
     super(params);
     this.#createContainerView();
-
     this.#configureView();
   }
 
