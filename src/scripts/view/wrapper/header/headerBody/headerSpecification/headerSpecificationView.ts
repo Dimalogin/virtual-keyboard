@@ -27,7 +27,8 @@ export default class HeaderSpecificationView extends View {
   #headerSpecificationView: DocumentFragment | null =
     document.createDocumentFragment();
 
-  headerSpecificationButtonView: HeaderSpecificationButtonView | null = null;
+  headerSpecificationButton: HTMLElement | null = null;
+  headerSpecificationModalWindow: HTMLElement | null = null;
 
   constructor() {
     const params: ElementParams = {
@@ -45,31 +46,45 @@ export default class HeaderSpecificationView extends View {
     super(params);
 
     this.#createHeaderSpecificationButtonView();
-    this.#createHeaderSpecificationModalWindowView();
+    this.#createHeaderSpecificationModalWindow();
+
     this.#configureView();
+
+    this.#bindListeners();
   }
 
   #createHeaderSpecificationButtonView(): void {
     const headerSpecificationButtonView = new HeaderSpecificationButtonView();
-    this.headerSpecificationButtonView = headerSpecificationButtonView;
-
-    this.#headerSpecificationView?.appendChild(
-      headerSpecificationButtonView.getHtmlElement()
-    );
+    this.headerSpecificationButton =
+      headerSpecificationButtonView.getHtmlElement();
   }
 
-  #createHeaderSpecificationModalWindowView(): void {
-    const headerSpecificationModalWindowView =
-      new HeaderSpecificationModalWindowView(
-        this.headerSpecificationButtonView!
-      );
+  #createHeaderSpecificationModalWindow() {
+    const headerSpecificationModalWindow =
+      new HeaderSpecificationModalWindowView();
 
-    this.#headerSpecificationView?.appendChild(
-      headerSpecificationModalWindowView.getHtmlElement()
+    this.headerSpecificationModalWindow =
+      headerSpecificationModalWindow.getHtmlElement();
+  }
+
+  #bindListeners(): void {
+    this.headerSpecificationButton?.addEventListener(
+      "click",
+      this.#openModalWindow.bind(this)
     );
   }
 
   #configureView() {
     this.viewElementCreator?.addInnerElement(this.#headerSpecificationView!);
   }
+
+  #openModalWindow(): void {
+    console.log("open");
+    /*
+    const headerSpecificationModalWindowView =
+      new HeaderSpecificationModalWindowView();
+      */
+  }
+
+  #initSpecificationModalWindowTemplate(): void {}
 }
