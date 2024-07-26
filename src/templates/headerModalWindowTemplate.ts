@@ -1,7 +1,7 @@
-const headerModalWindowTemplate = document.createElement("template");
+const headerModalWindowContentTemplate = document.createElement("template");
 
-headerModalWindowTemplate.innerHTML = `   
-    <div
+headerModalWindowContentTemplate.innerHTML = `   
+ <div
       class="specification-header__modal-content modal-content-specification"
     >
       <div class="modal-content-specification__body">
@@ -13,7 +13,6 @@ headerModalWindowTemplate.innerHTML = `
         >
       </div>
     </div>
-
 `;
 
-export default headerModalWindowTemplate;
+export default headerModalWindowContentTemplate;

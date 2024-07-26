@@ -6,14 +6,11 @@ import "./headerSpecificationModalWindowView.scss";
 
 import View from "../../../../../view";
 
-// Templates
-
-import headerModalWindowTemplate from "../../../../../../../templates/headerModalWindowTemplate";
-
 // Types
 
 import { ElementParams } from "../../../../../../../types/types";
-import HeaderSpecificationButtonView from "../headerSpecificationButton/headerSpecificationButtonView";
+
+import HeaderSpecificationModalContent from "../headerSpecificationModalContent/headerSpecificationModalContentView";
 
 // Parameters
 

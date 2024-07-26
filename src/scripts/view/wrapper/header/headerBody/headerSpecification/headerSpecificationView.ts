@@ -7,6 +7,7 @@ import "./headerSpecificationView.scss";
 import View from "../../../../view";
 import HeaderSpecificationButtonView from "./headerSpecificationButton/headerSpecificationButtonView";
 import HeaderSpecificationModalWindowView from "./headerSpecificationModalWindow/headerSpecificationModalWindowView";
+import HeaderSpecificationModalContentView from "./headerSpecificationModalContent/headerSpecificationModalContentView";
 
 // Types
 
@@ -27,7 +28,7 @@ export default class HeaderSpecificationView extends View {
   #headerSpecificationView: DocumentFragment | null =
     document.createDocumentFragment();
 
-  headerSpecificationButton: HTMLElement | null = null;
+  headerSpecificationButtonView: HTMLElement | null = null;
   headerSpecificationModalWindow: HTMLElement | null = null;
 
   constructor() {
@@ -47,19 +48,18 @@ export default class HeaderSpecificationView extends View {
 
     this.#createHeaderSpecificationButtonView();
     this.#createHeaderSpecificationModalWindow();
-
     this.#configureView();
-
     this.#bindListeners();
   }
 
   #createHeaderSpecificationButtonView(): void {
     const headerSpecificationButtonView = new HeaderSpecificationButtonView();
-    this.headerSpecificationButton =
+
+    this.headerSpecificationButtonView =
       headerSpecificationButtonView.getHtmlElement();
   }
 
-  #createHeaderSpecificationModalWindow() {
+  #createHeaderSpecificationModalWindow(): void {
     const headerSpecificationModalWindow =
       new HeaderSpecificationModalWindowView();
 
@@ -67,24 +67,25 @@ export default class HeaderSpecificationView extends View {
       headerSpecificationModalWindow.getHtmlElement();
   }
 
-  #bindListeners(): void {
-    this.headerSpecificationButton?.addEventListener(
-      "click",
-      this.#openModalWindow.bind(this)
+  #configureView(): void {
+    this.#headerSpecificationView?.append(
+      this.headerSpecificationButtonView!,
+      this.headerSpecificationModalWindow!
     );
-  }
-
-  #configureView() {
     this.viewElementCreator?.addInnerElement(this.#headerSpecificationView!);
   }
 
-  #openModalWindow(): void {
-    console.log("open");
-    /*
-    const headerSpecificationModalWindowView =
-      new HeaderSpecificationModalWindowView();
-      */
+  #bindListeners(): void {
+    this.headerSpecificationButtonView?.addEventListener(
+      "click",
+      this.#createHeaderModalWindowContent.bind(this)
+    );
   }
 
-  #initSpecificationModalWindowTemplate(): void {}
+  #createHeaderModalWindowContent() {
+    const headerSpecificationModalContentView =
+      new HeaderSpecificationModalContentView(
+        this.headerSpecificationModalWindow!
+      );
+  }
 }
