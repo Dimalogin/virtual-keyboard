@@ -33,6 +33,7 @@ export default class HeaderSpecificationButtonView extends View {
       callback: null,
       attributes: [cssAttributes.TYPE],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);

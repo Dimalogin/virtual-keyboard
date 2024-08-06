@@ -29,6 +29,7 @@ export default class FooterDateView extends View {
       callback: null,
       attributes: [],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);

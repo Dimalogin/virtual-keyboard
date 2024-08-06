@@ -7,6 +7,7 @@ export type ElementParams = {
   callback: null | Function;
   attributes: Array<Array<string>>;
   identificators: Array<string>;
+  dataAttributes: Array<Array<string>>;
 };
 
 export type ViewParams = {

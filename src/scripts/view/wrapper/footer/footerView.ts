@@ -33,6 +33,7 @@ export default class FooterView extends View {
       callback: null,
       attributes: [],
       identificators: [],
+      dataAttributes:[],
     };
 
     super(params);

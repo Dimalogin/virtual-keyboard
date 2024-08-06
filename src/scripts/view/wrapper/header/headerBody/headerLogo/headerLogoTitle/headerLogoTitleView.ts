@@ -29,6 +29,7 @@ export default class HeaderLogoTitleView extends View {
       callback: null,
       attributes: [],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);

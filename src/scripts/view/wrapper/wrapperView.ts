@@ -34,6 +34,7 @@ export default class WrapperView extends View {
       callback: null,
       attributes: [],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);

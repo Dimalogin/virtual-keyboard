@@ -30,6 +30,7 @@ export default class FooterImageView extends View {
       callback: null,
       attributes: [cssAttributes.SRC, cssAttributes.ALT, cssAttributes.TITLE],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);

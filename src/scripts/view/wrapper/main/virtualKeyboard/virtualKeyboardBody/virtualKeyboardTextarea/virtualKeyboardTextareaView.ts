@@ -1,6 +1,6 @@
 // Styles
 
-import "./headerSpecificationModalWindowView.scss";
+import "./virtualKeyboardTextareaView.scss";
 
 // Scripts
 
@@ -10,23 +10,21 @@ import View from "../../../../../view";
 
 import { ElementParams } from "../../../../../../../types/types";
 
-import HeaderSpecificationModalContent from "../headerSpecificationModalContent/headerSpecificationModalContentView";
-
 // Parameters
 
 const tag = {
-  TAG: "div",
+  TAG: "textarea",
 };
 
 const cssClasses = {
-  specificationHeaderModalWindow: "specification-header__modal-window",
+  keyboardVirtualTextarea: "keyboard-virtual__textarea",
 };
 
-export default class HeaderSpecificationModalWindowView extends View {
+export default class VirtualKeyboardTextareaView extends View {
   constructor() {
     const params: ElementParams = {
       tag: tag.TAG,
-      classNames: [cssClasses.specificationHeaderModalWindow],
+      classNames: [cssClasses.keyboardVirtualTextarea],
       textContent: "",
       callback: null,
       attributes: [],

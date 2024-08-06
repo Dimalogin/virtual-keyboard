@@ -30,6 +30,7 @@ export default class HeaderLogoIconView extends View {
       callback: null,
       attributes: [],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);

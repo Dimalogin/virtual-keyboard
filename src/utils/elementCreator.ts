@@ -16,6 +16,7 @@ export default class ElementCreator {
     this.#setTextContent(params.textContent);
     this.#setCallback(params.callback);
     this.#setAtrributes(params.attributes);
+    this.#setDataAttributes(params.dataAttributes);
   }
 
   #setCssClasses(cssClasses: Array<string>): void {
@@ -36,6 +37,13 @@ export default class ElementCreator {
     attributes.map((attribute) => {
       const [name, value] = attribute;
       this.#element!.setAttribute(name, value);
+    });
+  }
+
+  #setDataAttributes(dataAttributes: Array<Array<string>>) {
+    dataAttributes.map((dataAttribute) => {
+      const [dataName, dataValue] = dataAttribute;
+      this.#element!.dataset[dataName] = dataValue;
     });
   }
 

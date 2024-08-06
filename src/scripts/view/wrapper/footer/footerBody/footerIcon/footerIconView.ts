@@ -35,6 +35,7 @@ export default class FooterIconView extends View {
       callback: null,
       attributes: [cssAttributes.HREF],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);

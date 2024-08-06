@@ -6,6 +6,7 @@ import "./mainView.scss";
 
 import View from "../../view";
 import ContainerView from "../container/contanerView";
+import VirtualKeyboardView from "./virtualKeyboard/virtualKeyboardView";
 
 // Types
 
@@ -18,7 +19,7 @@ const tag = {
 };
 
 const cssClasses = {
-  HEADER: "main",
+  MAIN: "main",
 };
 
 export default class MainView extends View {
@@ -27,15 +28,17 @@ export default class MainView extends View {
   constructor() {
     const params: ElementParams = {
       tag: tag.TAG,
-      classNames: [cssClasses.HEADER],
+      classNames: [cssClasses.MAIN],
       textContent: "",
       callback: null,
       attributes: [],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);
     this.#createContainerView();
+    this.#createVirtualKeyboardView();
     this.#configureView();
   }
 
@@ -48,7 +51,12 @@ export default class MainView extends View {
     this.#containerView = containerView.getHtmlElement();
   }
 
-  #configureView() {
+  #createVirtualKeyboardView(): void {
+    const virtualKeyboardView = new VirtualKeyboardView();
+    this.#containerView?.appendChild(virtualKeyboardView.getHtmlElement());
+  }
+
+  #configureView(): void {
     this.viewElementCreator?.addInnerElement(this.#containerView!);
   }
 }

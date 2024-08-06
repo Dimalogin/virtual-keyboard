@@ -22,6 +22,7 @@ export default class View {
       callback: params.callback,
       attributes: params.attributes,
       identificators: params.identificators,
+      dataAttributes: params.dataAttributes
     };
 
     this.viewElementCreator = new ElementCreator(elementParams);

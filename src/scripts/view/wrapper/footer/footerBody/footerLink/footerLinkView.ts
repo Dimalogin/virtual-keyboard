@@ -33,6 +33,7 @@ export default class FooterLinkView extends View {
       callback: null,
       attributes: [cssAttributes.HREF],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);

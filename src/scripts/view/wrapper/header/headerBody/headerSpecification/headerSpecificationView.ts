@@ -42,6 +42,7 @@ export default class HeaderSpecificationView extends View {
       callback: null,
       attributes: [],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);

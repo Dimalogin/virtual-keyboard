@@ -18,14 +18,14 @@ export default class HeaderSpecificationModalContentView {
   #modalWindowButtonClose: HTMLElement | null = null;
 
   constructor(modalWindowElement: HTMLElement) {
-    this.#initTemplate(modalWindowElement);
+    this.#modalWindowElement = modalWindowElement;
+
+    this.#initTemplate();
     this.#openModalWindow(modalWindowElement);
     this.#bindListeners();
   }
 
-  #initTemplate(modalWindowElement: HTMLElement) {
-    this.#modalWindowElement = modalWindowElement;
-
+  #initTemplate() {
     this.#modalWindowContentTemplateFullView =
       headerModalWindowContentTemplate.content.cloneNode(
         true

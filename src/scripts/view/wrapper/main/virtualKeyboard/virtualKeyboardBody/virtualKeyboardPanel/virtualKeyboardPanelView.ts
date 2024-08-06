@@ -1,6 +1,6 @@
 // Styles
 
-import "./headerSpecificationModalWindowView.scss";
+import "./virtualKeyboardPanelView.scss";
 
 // Scripts
 
@@ -10,8 +10,6 @@ import View from "../../../../../view";
 
 import { ElementParams } from "../../../../../../../types/types";
 
-import HeaderSpecificationModalContent from "../headerSpecificationModalContent/headerSpecificationModalContentView";
-
 // Parameters
 
 const tag = {
@@ -19,14 +17,18 @@ const tag = {
 };
 
 const cssClasses = {
-  specificationHeaderModalWindow: "specification-header__modal-window",
+  keyboardVirtualPanel: "keyboard-virtual__panel",
+  panelKeyboardVirtual: "panel-keyboard-virtual",
 };
 
-export default class HeaderSpecificationModalWindowView extends View {
+export default class VirtualKeyboardPanelView extends View {
   constructor() {
     const params: ElementParams = {
       tag: tag.TAG,
-      classNames: [cssClasses.specificationHeaderModalWindow],
+      classNames: [
+        cssClasses.keyboardVirtualPanel,
+        cssClasses.panelKeyboardVirtual,
+      ],
       textContent: "",
       callback: null,
       attributes: [],

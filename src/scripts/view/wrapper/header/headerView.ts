@@ -34,6 +34,7 @@ export default class HeaderView extends View {
       callback: null,
       attributes: [],
       identificators: [],
+      dataAttributes: [],
     };
 
     super(params);
