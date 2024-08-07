@@ -18,3 +18,9 @@ export type ViewParams = {
 export type ContainerParams = {
   CONTAINER: string;
 };
+
+export type VirtualKeyboardProperties = {
+  textareaValue: string;
+  keyboardLanguage: string;
+  keyboardCapslock: boolean;
+};
