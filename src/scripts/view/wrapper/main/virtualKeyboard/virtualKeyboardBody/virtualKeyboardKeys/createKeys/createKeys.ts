@@ -44,7 +44,6 @@ export default class CreateKeys {
     this.#bindListeners();
 
     this.#createKeys();
-
     this.#renderKeys();
   }
 
@@ -68,7 +67,8 @@ export default class CreateKeys {
   }
 
   #bindListeners() {
-    //document.addEventListener("keydown", this.setKeyboardBacklight.bind(this));
+    document.addEventListener("keydown", this.#keyboardBacklight.bind(this));
+
     this.screenKeyboardVirtualTextarea?.addEventListener(
       "input",
       this.#setTextareaValue.bind(this)
@@ -130,7 +130,7 @@ export default class CreateKeys {
           keyElement.classList.add("keyboard__key--wide");
           keyElement.innerHTML = this.#createIconHTML("keyboard_return")!;
           keyElement.dataset.type = "enter";
-          // keyElement.addEventListener("click", this.setEnter.bind(this));
+          keyElement.addEventListener("click", this.#setEnter.bind(this));
 
           break;
 
@@ -163,7 +163,7 @@ export default class CreateKeys {
           keyElement.classList.add("keyboard__key--extra-wide");
           keyElement.innerHTML = this.#createIconHTML("space_bar")!;
           keyElement.dataset.type = " ";
-          // keyElement.addEventListener("click", this.setSpace.bind(this));
+          keyElement.addEventListener("click", this.#setSpace.bind(this));
 
           break;
 
@@ -190,15 +190,17 @@ export default class CreateKeys {
           const currentLanguage: string =
             this.virtualKeyboardProperties.keyboardLanguage;
           keyElement.textContent = currentLanguage;
-
-          //keyElement.addEventListener("click", this.setToggleLang.bind(this));
+          keyElement.addEventListener(
+            "click",
+            this.#setToggleLanguage.bind(this)
+          );
 
           break;
 
         default:
           keyElement.textContent = currentValue.toLowerCase();
           keyElement.dataset.symbol = "";
-          //keyElement.addEventListener("click", this.setValue.bind(this));
+          keyElement.addEventListener("click", this.#setValue.bind(this));
 
           break;
       }
@@ -220,6 +222,8 @@ export default class CreateKeys {
         0,
         this.virtualKeyboardProperties.textareaValue.length - 1
       );
+
+    this.#triggerEvent();
   }
 
   #setTab() {
@@ -244,17 +248,72 @@ export default class CreateKeys {
   #switchRegister() {
     const elements = Array.from(this.virtualKeyboardKeysView!.children);
 
-    console.log(elements);
-
-    /*
     elements.forEach((item) => {
       if (item.hasAttribute("data-symbol")) {
-        item.textContent = this.properties.keyboardCaps
-          ? item.textContent.toUpperCase()
-          : item.textContent.toLowerCase();
+        item.textContent = this.virtualKeyboardProperties.keyboardCapslock
+          ? item.textContent!.toUpperCase()
+          : item.textContent!.toLowerCase();
       }
     });
-    */
+  }
+
+  #setEnter() {
+    this.virtualKeyboardProperties.textareaValue += "\n";
+    this.#triggerEvent();
+  }
+
+  #setSpace() {
+    this.virtualKeyboardProperties.textareaValue += " ";
+    this.#triggerEvent();
+  }
+
+  #setToggleLanguage() {
+    switch (this.virtualKeyboardProperties.keyboardLanguage) {
+      case "eng":
+        this.virtualKeyboardProperties.keyboardLanguage = "ru";
+        this.virtualKeyboardProperties.keyboardCapslock = false;
+
+        break;
+      case "ru":
+        this.virtualKeyboardProperties.keyboardLanguage = "eng";
+        this.virtualKeyboardProperties.keyboardCapslock = false;
+        break;
+    }
+
+    this.#createKeys();
+    this.#clearKeyboard();
+    this.#renderKeys();
+  }
+
+  #clearKeyboard() {
+    this.virtualKeyboardKeysView!.innerHTML = "";
+  }
+
+  #setValue(event: Event) {
+    const target = event.target as HTMLButtonElement;
+    this.virtualKeyboardProperties.textareaValue += target.textContent;
+    this.#triggerEvent();
+  }
+
+  #keyboardBacklight(event: KeyboardEvent) {
+    const key = event.key.toLowerCase();
+    console.log(key);
+
+    const elements = Array.from(
+      this.virtualKeyboardKeysView!.children
+    ) as Array<HTMLButtonElement>;
+
+    elements.forEach((item) => {
+      const type = item.dataset.type ? item.dataset.type : null;
+      const letter = item.textContent?.toLowerCase();
+
+      if (key === letter || key === type) {
+        item.classList.add("keyboard__key--backlight");
+        setTimeout(() => {
+          item.classList.remove("keyboard__key--backlight");
+        }, 100);
+      }
+    });
   }
 
   #triggerEvent() {
