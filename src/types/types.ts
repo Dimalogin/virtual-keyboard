@@ -24,3 +24,15 @@ export type VirtualKeyboardProperties = {
   keyboardLanguage: string;
   keyboardCapslock: boolean;
 };
+
+export type SpeechSynthesisProperties = {
+  utterance: SpeechSynthesisUtterance;
+  synthesis: SpeechSynthesis;
+  speech: boolean;
+  voiceRu: SpeechSynthesisVoice | null;
+  voiceEn: SpeechSynthesisVoice | null;
+  buttonSound: HTMLButtonElement | null;
+  iconButtonSound: HTMLElement | null;
+  currentLanguage: string | null;
+  currentTextareaValue: string | null;
+};

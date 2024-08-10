@@ -23,7 +23,7 @@ const cssClasses = {
 };
 
 const cssAttributes = {
-  HREF: ["href", "#"],
+  HREF: ["href", "https://dimalogin.github.io/virtual-keyboard/"],
 };
 
 export default class HeaderLogoView extends View {
