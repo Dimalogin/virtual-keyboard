@@ -6,7 +6,7 @@ keyboardVirtualScreenTemplate.innerHTML = `
       <div class="screen-keyboard-virtual__entry-field">
         <div class="entry-field__display display-entry-field">
           <span class="display-entry-field__icon display-entry-field__icon--microphone"></span>
-          <input class="display-entry-field__input" type="text" />
+          <input class="display-entry-field__input" type="text" disabled />
         </div>
         <div class="entry-field__buttons buttons-entry-field">
           <button

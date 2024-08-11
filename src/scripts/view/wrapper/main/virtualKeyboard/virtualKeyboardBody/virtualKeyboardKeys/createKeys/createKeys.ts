@@ -5,6 +5,7 @@ import "./createKeys.scss";
 // Scripts
 
 import SpeechSynthesisModel from "./speechSynthesisModel/speechSynthesisModel";
+import SpeechRecognitionModel from "./speechRecognitionModel/speechRecognitionModel";
 
 // Types
 
@@ -23,11 +24,8 @@ export default class CreateKeys {
   screenKeyboardVirtualTextarea: HTMLTextAreaElement | null = null;
   keysFragment: DocumentFragment | null = null;
 
-  displayEntryFieldInput: HTMLElement | null = null;
-  entryFieldConfirmBtn: HTMLElement | null = null;
-  entryFieldCancelBtn: HTMLElement | null = null;
-
   speechSynthesisModel: SpeechSynthesisModel | null = null;
+  speechRecognitionModel: any;
 
   virtualKeyboardProperties: VirtualKeyboardProperties = {
     textareaValue: "",
@@ -49,6 +47,7 @@ export default class CreateKeys {
     this.#renderKeys();
 
     this.#initSpeechSynthesisModel();
+    this.#initSpeechRecognitionModel();
   }
 
   #initTemplate() {
@@ -56,18 +55,6 @@ export default class CreateKeys {
       this.keyboardVirtualScreenView?.querySelector(
         ".screen-keyboard-virtual__textarea"
       ) as HTMLTextAreaElement;
-
-    this.displayEntryFieldInput = this.keyboardVirtualScreenView?.querySelector(
-      ".display-entry-field__input"
-    ) as HTMLElement;
-
-    this.entryFieldConfirmBtn = this.keyboardVirtualScreenView?.querySelector(
-      ".buttons-entry-field__confirm-btn"
-    ) as HTMLElement;
-
-    this.entryFieldCancelBtn = this.keyboardVirtualScreenView?.querySelector(
-      ".buttons-entry-field__cancel-btn"
-    ) as HTMLElement;
   }
 
   #bindListeners() {
@@ -193,7 +180,10 @@ export default class CreateKeys {
         case "microphone":
           keyElement.classList.add("keyboard__key--wide");
           keyElement.innerHTML = this.#createIconHTML("microphone")!;
-          // keyElement.addEventListener("click", this.startRecording.bind(this));
+          keyElement.addEventListener(
+            "click",
+            this.#speechRecognitionHadlers.bind(this)
+          );
 
           break;
 
@@ -436,6 +426,21 @@ export default class CreateKeys {
       event,
       this.virtualKeyboardProperties.textareaValue,
       this.virtualKeyboardProperties.keyboardLanguage
+    );
+  }
+
+  // Speech Recognition
+
+  #initSpeechRecognitionModel() {
+    this.speechRecognitionModel = new SpeechRecognitionModel(
+      this.keyboardVirtualScreenView!
+    );
+  }
+
+  #speechRecognitionHadlers(event: Event) {
+    this.speechRecognitionModel.startRecording(
+      event,
+      this.virtualKeyboardProperties.textareaValue
     );
   }
 }

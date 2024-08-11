@@ -36,3 +36,23 @@ export type SpeechSynthesisProperties = {
   currentLanguage: string | null;
   currentTextareaValue: string | null;
 };
+
+export type SpeechRecoginitionProperties = {
+  recognition: any;
+  recording: boolean;
+  finalResult: string;
+  buttonMicrophone: HTMLButtonElement | null;
+  iconButtonMicrophone: HTMLElement | null;
+  currentTextareaValue: string;
+};
+
+export type SpeechRecoginitionDictionary = {
+  точка: string;
+  запятая: string;
+  вопрос: string;
+  восклицание: string;
+  двоеточие: string;
+  тире: string;
+  абзац: string;
+  отступ: string;
+};

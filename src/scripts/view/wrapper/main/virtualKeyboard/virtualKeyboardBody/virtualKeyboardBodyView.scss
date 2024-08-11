@@ -1,3 +1,7 @@
+.keyboard-virtual__screen {
+  margin: 0px 0px 40px 0px;
+}
+
 .screen-keyboard-virtual__textarea {
   width: 100%;
   min-height: 220px;
@@ -8,4 +12,86 @@
   margin: 0px 0px 10px 0px;
   padding: 20px;
   font-family: "robotoregular";
+}
+
+.screen-keyboard-virtual__entry-field {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.entry-field__display {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  flex: 1 0 auto;
+  margin: 0px 10px 0px 0px;
+}
+
+.display-entry-field__icon {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  margin: 0px 10px 0px 0px;
+}
+
+.display-entry-field__icon--microphone {
+  background-image: url(../../../../../../images/microphoneBlack.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 100% 100%;
+}
+
+.display-entry-field__input {
+  border: 1px solid black;
+  width: 100%;
+  min-height: 40px;
+  font-size: 20px;
+}
+
+.entry-field__buttons {
+  border: 1px solid black;
+  display: flex;
+  flex: 0 1 auto;
+}
+
+.buttons-entry-field__confirm-btn {
+  border: 1px solid black;
+  width: 100px;
+  min-height: 20px;
+}
+
+.buttons-entry-field__cancel-btn {
+  border: 1px solid black;
+  width: 100px;
+  min-height: 20px;
+}
+
+.confirm-buttons-entry-field__icon {
+  display: block;
+  width: 30px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+.confirm-buttons-entry-field__icon--checkmark {
+  background-image: url(../../../../../../images/checkmark.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 100% 100%;
+}
+
+.cancel-buttons-entry-field__icon {
+  display: block;
+  width: 30px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+.cancel-buttons-entry-field__icon--cancel {
+  background-image: url(../../../../../../images/cancel.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 100% 100%;
 }
