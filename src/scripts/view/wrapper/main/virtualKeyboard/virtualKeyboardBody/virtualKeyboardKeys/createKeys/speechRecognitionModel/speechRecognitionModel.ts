@@ -58,11 +58,11 @@ export default class SpeechRecognitionModel {
     ) as HTMLInputElement;
 
     this.entryFieldConfirmBtn = this.keyboardVirtualScreenView?.querySelector(
-      ".buttons-entry-field__confirm-btn"
+      ".entry-field__confirm-btn"
     ) as HTMLButtonElement;
 
     this.entryFieldCancelBtn = this.keyboardVirtualScreenView?.querySelector(
-      ".buttons-entry-field__cancel-btn"
+      ".entry-field__cancel-btn"
     ) as HTMLButtonElement;
   }
 

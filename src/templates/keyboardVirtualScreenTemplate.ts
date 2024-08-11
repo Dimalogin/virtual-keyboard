@@ -10,18 +10,18 @@ keyboardVirtualScreenTemplate.innerHTML = `
         </div>
         <div class="entry-field__buttons buttons-entry-field">
           <button
-            class="buttons-entry-field__confirm-btn confirm-buttons-entry-field"
+            class="buttons-entry-field__button entry-field__confirm-btn"
             title="Add result"
             disabled
           >
-            <span class="confirm-buttons-entry-field__icon confirm-buttons-entry-field__icon--checkmark"></span>
+            <span class="confirm-btn__icon confirm-btn__icon--checkmark"></span>
           </button>
           <button
-            class="buttons-entry-field__cancel-btn cancel-buttons-entry-field"
+            class="buttons-entry-field__button entry-field__cancel-btn"
             title="Reset field"
              disabled
           >
-            <span class="cancel-buttons-entry-field__icon cancel-buttons-entry-field__icon--cancel"></span>
+            <span class="cancel-btn__icon cancel-btn__icon--cancel"></span>
           </button>
         </div>
       </div>

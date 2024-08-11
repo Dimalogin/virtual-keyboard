@@ -1,97 +1,103 @@
 .keyboard-virtual__screen {
   margin: 0px 0px 40px 0px;
-}
 
-.screen-keyboard-virtual__textarea {
-  width: 100%;
-  min-height: 220px;
-  max-height: 220px;
-  border: 1px solid #cccccc;
-  border-radius: 10px;
-  font-size: 18px;
-  margin: 0px 0px 10px 0px;
-  padding: 20px;
-  font-family: "robotoregular";
-}
+  .screen-keyboard-virtual__textarea {
+    width: 100%;
+    min-height: 220px;
+    max-height: 220px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    font-size: 18px;
+    margin: 0px 0px 10px 0px;
+    padding: 20px;
+    font-family: "robotoregular";
+  }
+  .screen-keyboard-virtual__entry-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
-.screen-keyboard-virtual__entry-field {
-  border: 1px solid black;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+  .entry-field__display {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+    margin: 0px 20px 0px 0px;
 
-.entry-field__display {
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  flex: 1 0 auto;
-  margin: 0px 10px 0px 0px;
-}
+    .display-entry-field__icon {
+      min-width: 20px;
+      min-height: 20px;
+      margin: 0px 10px 0px 0px;
+    }
+    .display-entry-field__icon--microphone {
+      background-image: url(../../../../../../images/microphoneBlack.svg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: 100% 100%;
+    }
+    .display-entry-field__input {
+      flex: 1 0 auto;
+      min-height: 35px;
+      font-size: 20px;
+      border: 1px solid #cccccc;
+      border-radius: 10px;
+      font-size: 18px;
+      padding: 5px;
+      font-family: "robotoregular";
+      background-color: white;
+    }
+  }
 
-.display-entry-field__icon {
-  width: 20px;
-  height: 20px;
-  border: 1px solid black;
-  margin: 0px 10px 0px 0px;
-}
+  .entry-field__buttons {
+    display: flex;
+    flex: 0 1 auto;
 
-.display-entry-field__icon--microphone {
-  background-image: url(../../../../../../images/microphoneBlack.svg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: 100% 100%;
-}
+    .buttons-entry-field__button {
+      min-width: 80px;
+      min-height: 35px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
 
-.display-entry-field__input {
-  border: 1px solid black;
-  width: 100%;
-  min-height: 40px;
-  font-size: 20px;
-}
+      .confirm-btn__icon {
+        display: block;
+        min-width: 30px;
+        min-height: 30px;
+      }
 
-.entry-field__buttons {
-  border: 1px solid black;
-  display: flex;
-  flex: 0 1 auto;
-}
+      .confirm-btn__icon--checkmark {
+        background-image: url(../../../../../../images/checkmark.svg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: 100% 100%;
+      }
 
-.buttons-entry-field__confirm-btn {
-  border: 1px solid black;
-  width: 100px;
-  min-height: 20px;
-}
+      .cancel-btn__icon {
+        display: block;
+        min-width: 30px;
+        min-height: 30px;
+      }
 
-.buttons-entry-field__cancel-btn {
-  border: 1px solid black;
-  width: 100px;
-  min-height: 20px;
-}
+      .cancel-btn__icon--cancel {
+        background-image: url(../../../../../../images/cancel.svg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: 100% 100%;
+      }
+    }
 
-.confirm-buttons-entry-field__icon {
-  display: block;
-  width: 30px;
-  height: 20px;
-  border: 1px solid black;
-}
+    .buttons-entry-field__button:not(:last-child) {
+      margin: 0px 10px 0px 0px;
+    }
 
-.confirm-buttons-entry-field__icon--checkmark {
-  background-image: url(../../../../../../images/checkmark.svg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: 100% 100%;
-}
+    .entry-field__confirm-btn {
+      background-color: #9dcc64;
+    }
 
-.cancel-buttons-entry-field__icon {
-  display: block;
-  width: 30px;
-  height: 20px;
-  border: 1px solid black;
-}
-
-.cancel-buttons-entry-field__icon--cancel {
-  background-image: url(../../../../../../images/cancel.svg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: 100% 100%;
+    .entry-field__cancel-btn {
+      background-color: #df7d4c;
+    }
+  }
 }
