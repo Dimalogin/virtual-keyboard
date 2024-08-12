@@ -15,6 +15,7 @@ import { ElementParams } from "../../../../../../types/types";
 // Templates
 
 import keyboardVirtualScreenTemplate from "../../../../../../templates/keyboardVirtualScreenTemplate";
+import keyboardVirtualPanelTemplate from "../../../../../../templates/virtualKeyboardPanelTemplate";
 
 // Parameters
 
@@ -33,6 +34,10 @@ export default class VirtualKeyboardBodyView extends View {
   #keyboardVirtualScreenTemplate: DocumentFragment | null = null;
   #keyboardVirtualScreenView: HTMLElement | null = null;
 
+  #virtualKeyboardPanelTemplate: DocumentFragment | null =
+    document.createDocumentFragment();
+  #virtualKeyboardPanelView: HTMLElement | null = null;
+
   constructor() {
     const params: ElementParams = {
       tag: tag.TAG,
@@ -50,8 +55,13 @@ export default class VirtualKeyboardBodyView extends View {
     this.#getKeyboardVirtualScreenView();
     this.#createKeyboardVirtualScreenView();
 
+    this.#initKeyboardVirtualPanelTemplate();
+    this.#getKeyboardVirtualPanelView();
     this.#createVirtualKeyboardPanelView();
+
     this.#configureView();
+
+    this.#createPanelKeyboardVirtualKeysView();
   }
 
   #initKeyboardVirtualScreenTemplate() {
@@ -72,17 +82,30 @@ export default class VirtualKeyboardBodyView extends View {
     );
   }
 
-  #createVirtualKeyboardPanelView() {
-    const virtualKeyboardKeysView = new VirtualKeyboardKeysView(
-      this.#keyboardVirtualScreenView!
-    );
+  #initKeyboardVirtualPanelTemplate() {
+    this.#virtualKeyboardPanelTemplate =
+      keyboardVirtualPanelTemplate.content.cloneNode(true) as DocumentFragment;
+  }
 
-    this.#virtualKeyboardBodyView?.appendChild(
-      virtualKeyboardKeysView.getHtmlElement()
-    );
+  #getKeyboardVirtualPanelView() {
+    this.#virtualKeyboardPanelView =
+      this.#virtualKeyboardPanelTemplate?.querySelector(
+        ".keyboard-virtual__panel"
+      ) as HTMLElement;
+  }
+
+  #createVirtualKeyboardPanelView() {
+    this.#virtualKeyboardBodyView?.appendChild(this.#virtualKeyboardPanelView!);
   }
 
   #configureView(): void {
     this.viewElementCreator?.addInnerElement(this.#virtualKeyboardBodyView!);
+  }
+
+  #createPanelKeyboardVirtualKeysView() {
+    const panelKeyboardVirtualKeys = new VirtualKeyboardKeysView(
+      this.#keyboardVirtualScreenView!,
+      this.#virtualKeyboardPanelView!
+    );
   }
 }

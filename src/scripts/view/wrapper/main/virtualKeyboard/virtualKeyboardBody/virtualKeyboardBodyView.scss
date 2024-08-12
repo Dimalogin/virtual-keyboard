@@ -17,6 +17,8 @@
     .screen-keyboard-virtual__textarea {
       min-height: 150px;
       max-height: 150px;
+      font-size: 14px;
+      padding: 10px;
     }
   }
 
@@ -65,6 +67,7 @@
     @media (max-width: 475px) {
       .display-entry-field__input {
         flex: 1 0 auto;
+        font-size: 12px;
       }
     }
   }

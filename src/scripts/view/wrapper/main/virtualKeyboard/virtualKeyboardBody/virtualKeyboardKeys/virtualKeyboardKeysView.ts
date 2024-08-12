@@ -13,39 +13,27 @@ import { ElementParams } from "../../../../../../../types/types";
 
 // Parameters
 
-const tag = {
-  TAG: "div",
-};
-
-const cssClasses = {
-  virtualKeyboardKeys: "virtual-keyboard__keys",
-};
-
-export default class VirtualKeyboardKeysView extends View {
-  virtualKeyboardKeysView: HTMLElement | null = null;
+export default class VirtualKeyboardKeysView {
   keyboardVirtualScreenView: HTMLElement | null = null;
+  virtualKeyboardPanelView: HTMLElement | null = null;
 
-  constructor(keyboardVirtualScreenView: HTMLElement) {
-    const params: ElementParams = {
-      tag: tag.TAG,
-      classNames: [cssClasses.virtualKeyboardKeys],
-      textContent: "",
-      callback: null,
-      attributes: [],
-      identificators: [],
-      dataAttributes: [],
-    };
+  virtualKeyboardKeysView: HTMLElement | null = null;
 
-    super(params);
-
+  constructor(
+    keyboardVirtualScreenView: HTMLElement,
+    virtualKeyboardPanelView: HTMLElement
+  ) {
     this.keyboardVirtualScreenView = keyboardVirtualScreenView;
+    this.virtualKeyboardPanelView = virtualKeyboardPanelView;
 
     this.#createVirtualKeyboardKeysView();
     this.#createKeys();
   }
 
   #createVirtualKeyboardKeysView() {
-    this.virtualKeyboardKeysView = this.viewElementCreator?.getElement()!;
+    this.virtualKeyboardKeysView = this.virtualKeyboardPanelView?.querySelector(
+      ".panel-keyboard-virtual__keys"
+    ) as HTMLElement;
   }
 
   #createKeys() {
