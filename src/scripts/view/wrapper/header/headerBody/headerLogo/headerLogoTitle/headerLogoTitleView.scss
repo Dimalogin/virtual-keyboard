@@ -1,0 +1,13 @@
+.logo-header__title {
+  font-family: "robotobold";
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0em;
+  color: #222222;
+  font-style: normal;
+}
+@media (max-width: 1024px) {
+  .logo-header__title {
+    font-size: 20px;
+  }
+}

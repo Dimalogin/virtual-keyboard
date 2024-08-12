@@ -1,0 +1,241 @@
+.keyboard__key {
+  height: 45px;
+  width: 65px;
+  max-width: 90px;
+  margin: 3px;
+  border-radius: 4px;
+  border: none;
+  background: #fbed10;
+  color: black;
+  font-size: 1.05rem;
+  font-family: "robotobold";
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .keyboard__key {
+    height: 40px;
+    width: 50px;
+  }
+}
+
+@media (max-width: 824px) {
+  .keyboard__key {
+    height: 35px;
+    width: 40px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .keyboard__key {
+    height: 25px;
+    width: 28px;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 524px) {
+  .keyboard__key {
+    height: 20px;
+    width: 15px;
+    font-size: 0.5rem;
+  }
+}
+
+.keyboard__key--wide {
+  width: 100px;
+}
+
+@media (max-width: 1024px) {
+  .keyboard__key--wide {
+    width: 70px;
+  }
+}
+
+@media (max-width: 824px) {
+  .keyboard__key--wide {
+    width: 60px;
+  }
+}
+
+@media (max-width: 680px) {
+  .keyboard__key--wide {
+    width: 45px;
+  }
+}
+
+@media (max-width: 524px) {
+  .keyboard__key--wide {
+    width: 20px;
+  }
+}
+
+.keyboard__key--extra-wide {
+  width: 380px;
+  max-width: 500px;
+}
+
+@media (max-width: 1024px) {
+  .keyboard__key--extra-wide {
+    width: 260px;
+  }
+}
+
+@media (max-width: 824px) {
+  .keyboard__key--extra-wide {
+    width: 200px;
+  }
+}
+
+@media (max-width: 680px) {
+  .keyboard__key--extra-wide {
+    width: 130px;
+  }
+}
+
+@media (max-width: 524px) {
+  .keyboard__key--extra-wide {
+    width: 60px;
+  }
+}
+
+.keyboard__key--activatable::after {
+  content: "";
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+}
+
+@media (max-width: 824px) {
+  .keyboard__key--activatable::after {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media (max-width: 824px) {
+  .keyboard__key--activatable::after {
+    top: 5px;
+    right: 5px;
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media (max-width: 524px) {
+  .keyboard__key--activatable::after {
+    top: 3px;
+    right: 3px;
+    width: 3px;
+    height: 3px;
+  }
+}
+
+.keyboard__key--active::after {
+  background: #08ff00;
+}
+
+.keyboard__key--backlight {
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(46, 255, 0, 0.5);
+  -moz-box-shadow: 0px 0px 15px 5px rgba(46, 255, 0, 0.5);
+  box-shadow: 0px 0px 15px 5px rgba(46, 255, 0, 0.5);
+}
+
+.keyboard__key--dark {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.key-keyboard__icon {
+  width: 26px;
+  height: 26px;
+}
+
+@media (max-width: 824px) {
+  .key-keyboard__icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 680px) {
+  .key-keyboard__icon {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 524px) {
+  .key-keyboard__icon {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+.key-keyboard__icon--backspace {
+  background-image: url(../../../../../../../../images/delete.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 100% 100%;
+}
+
+.key-keyboard__icon--keyboard_capslock {
+  background-image: url(../../../../../../../../images/capslock.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 100% 100%;
+}
+
+.key-keyboard__icon--keyboard_return {
+  background-image: url(../../../../../../../../images/enter.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 100% 100%;
+}
+
+.key-keyboard__icon--space_bar {
+  background-image: url(../../../../../../../../images/space.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 100% 100%;
+}
+
+.key-keyboard__icon--soundWhite {
+  background-image: url(../../../../../../../../images/soundBlack.svg);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: 100% 100%;
+}
+
+.key-keyboard__icon--soundGreen {
+  background-image: url(../../../../../../../../images/soundGreen.svg);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: 100% 100%;
+}
+
+.key-keyboard__icon--microphone {
+  background-image: url(../../../../../../../../images/microphoneBlack.svg);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: 100% 100%;
+}
+
+.key-keyboard__icon--microphoneGreen {
+  background-image: url(../../../../../../../../images/microphoneGreen.svg);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: 100% 100%;
+}
