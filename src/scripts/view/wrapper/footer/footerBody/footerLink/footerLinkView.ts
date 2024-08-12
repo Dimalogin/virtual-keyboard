@@ -21,7 +21,8 @@ const cssClasses = {
 };
 
 const cssAttributes = {
-  HREF: ["href", "#"],
+  HREF: ["href", "https://github.com/Dimalogin"],
+  TARGET: ["target", "_blank"],
 };
 
 export default class FooterLinkView extends View {
@@ -31,7 +32,7 @@ export default class FooterLinkView extends View {
       classNames: [cssClasses.footerLink],
       textContent: "GitHub",
       callback: null,
-      attributes: [cssAttributes.HREF],
+      attributes: [cssAttributes.HREF, cssAttributes.TARGET],
       identificators: [],
       dataAttributes: [],
     };

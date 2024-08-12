@@ -23,7 +23,8 @@ const cssClasses = {
 };
 
 const cssAttributes = {
-  HREF: ["href", "#"],
+  HREF: ["href", "https://rs.school/"],
+  TARGET: ["target", "_blank"],
 };
 
 export default class FooterIconView extends View {
@@ -33,7 +34,7 @@ export default class FooterIconView extends View {
       classNames: [cssClasses.footerIcon],
       textContent: "",
       callback: null,
-      attributes: [cssAttributes.HREF],
+      attributes: [cssAttributes.HREF, cssAttributes.TARGET],
       identificators: [],
       dataAttributes: [],
     };
