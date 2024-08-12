@@ -1,3 +1,9 @@
 .main__virtual-keyboard {
-  padding: 60px 0px 0px 0px;
+  padding: 50px 0px 50px 0px;
+}
+
+@media (max-width: 1024px) {
+  .main__virtual-keyboard {
+    padding: 30px 0px 30px 0px;
+  }
 }
