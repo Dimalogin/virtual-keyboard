@@ -64,11 +64,18 @@ export default class SpeechSynthesisModel {
     textareaValue: string,
     keyboardLanguage: string
   ) {
-    const elementBtn = event.currentTarget as HTMLButtonElement;
-    const elementIcon = event.target as HTMLElement;
+    const element = event.target as HTMLElement;
 
-    this.speechSynthesisProperties.buttonSound = elementBtn;
-    this.speechSynthesisProperties.iconButtonSound = elementIcon;
+    if (element.children[0]) {
+      this.speechSynthesisProperties.buttonSound = element as HTMLButtonElement;
+      this.speechSynthesisProperties.iconButtonSound =
+        element.firstElementChild as HTMLElement;
+    } else {
+      this.speechSynthesisProperties.buttonSound =
+        element.parentElement as HTMLButtonElement;
+      this.speechSynthesisProperties.iconButtonSound = element as HTMLElement;
+    }
+
     this.speechSynthesisProperties.currentLanguage = keyboardLanguage;
     this.speechSynthesisProperties.currentTextareaValue = textareaValue;
 

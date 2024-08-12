@@ -30,8 +30,6 @@
     padding: 20px 10px;
     border: 1px solid #888;
     width: 50%;
-    min-height: 100px;
-
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
@@ -49,12 +47,79 @@
         opacity: 1;
       }
     }
-
     .modal-content-specification__button-close {
       position: absolute;
       top: 5px;
       right: 5px;
       background: transparent;
+    }
+
+    .modal-content-specification__list {
+    
+
+      .modal-content-specification__item:not(:last-child) {
+    
+        margin: 0px 0px 10px 0px;
+      }
+
+      .modal-content-specification__item {
+        padding: 0px 0px;
+
+        .modal-content-specification__meaning {
+          font-family: "robotoregular";
+          font-size: 18px;
+
+          .modal-content-specification__icon {
+            display: inline-block;
+            min-width: 20px;
+            min-height: 20px;
+           
+            vertical-align: middle;
+          }
+
+          .modal-content-specification__icon--backspace {
+            background-image: url(../../../../../../../images/delete.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: 100% 100%;
+          }
+          .modal-content-specification__icon--capslock {
+            background-image: url(../../../../../../../images/capslock.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: 100% 100%;
+          }
+          .modal-content-specification__icon--enter {
+            background-image: url(../../../../../../../images/enter.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: 100% 100%;
+          }
+          .modal-content-specification__icon--space {
+            background-image: url(../../../../../../../images/space.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: 100% 100%;
+          }
+          .modal-content-specification__icon--sound {
+            background-image: url(../../../../../../../images/soundBlack.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: 100% 100%;
+          }
+          .modal-content-specification__icon--microphone {
+            background-image: url(../../../../../../../images/microphoneBlack.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: 100% 100%;
+          }
+        }
+
+        .modal-content-specification__description {
+          font-family: "robotoregular";
+          font-size: 16px;
+        }
+      }
     }
   }
 }

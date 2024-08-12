@@ -7,7 +7,6 @@ import "./speechRecognitionModel.scss";
 // Types
 
 import { SpeechRecoginitionProperties } from "../../../../../../../../../types/types";
-import { SpeechRecoginitionDictionary } from "../../../../../../../../../types/types";
 
 // Parameters
 
@@ -113,11 +112,20 @@ export default class SpeechRecognitionModel {
   }
 
   startRecording(event: Event, textareaValue: string) {
-    const elementBtn = event.currentTarget as HTMLButtonElement;
-    const elementIcon = event.target as HTMLElement;
+    const element = event.target as HTMLElement;
 
-    this.speechRecoginitionProperties.buttonMicrophone = elementBtn;
-    this.speechRecoginitionProperties.iconButtonMicrophone = elementIcon;
+    if (element.children[0]) {
+      this.speechRecoginitionProperties.buttonMicrophone =
+        element as HTMLButtonElement;
+      this.speechRecoginitionProperties.iconButtonMicrophone =
+        element.firstElementChild as HTMLElement;
+    } else {
+      this.speechRecoginitionProperties.buttonMicrophone =
+        element.parentElement as HTMLButtonElement;
+      this.speechRecoginitionProperties.iconButtonMicrophone =
+        element as HTMLElement;
+    }
+
     this.speechRecoginitionProperties.currentTextareaValue = textareaValue;
 
     this.entryFieldConfirmBtn!.disabled = true;
@@ -178,6 +186,8 @@ export default class SpeechRecognitionModel {
     this.entryFieldCancelBtn!.disabled = true;
     this.speechRecoginitionProperties.finalResult = "";
     this.displayEntryFieldInput!.value = "";
+    this.entryFieldConfirmBtn!.style.opacity = "0.6";
+    this.entryFieldCancelBtn!.style.opacity = "0.6";
 
     this.#triggerEvent();
   }
@@ -188,6 +198,8 @@ export default class SpeechRecognitionModel {
     this.entryFieldConfirmBtn!.disabled = true;
     this.entryFieldCancelBtn!.disabled = true;
     this.speechRecoginitionProperties.finalResult = "";
+    this.entryFieldConfirmBtn!.style.opacity = "0.6";
+    this.entryFieldCancelBtn!.style.opacity = "0.6";
   }
 
   #microphoneStart() {
@@ -216,5 +228,7 @@ export default class SpeechRecognitionModel {
 
     this.entryFieldConfirmBtn!.disabled = false;
     this.entryFieldCancelBtn!.disabled = false;
+    this.entryFieldConfirmBtn!.style.opacity = "1";
+    this.entryFieldCancelBtn!.style.opacity = "1";
   }
 }

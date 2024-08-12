@@ -11,14 +11,14 @@ keyboardVirtualScreenTemplate.innerHTML = `
         <div class="entry-field__buttons buttons-entry-field">
           <button
             class="buttons-entry-field__button entry-field__confirm-btn"
-            title="Add result"
+            title="add result to textarea"
             disabled
           >
             <span class="confirm-btn__icon confirm-btn__icon--checkmark"></span>
           </button>
           <button
             class="buttons-entry-field__button entry-field__cancel-btn"
-            title="Reset field"
+            title="reset result"
              disabled
           >
             <span class="cancel-btn__icon cancel-btn__icon--cancel"></span>
